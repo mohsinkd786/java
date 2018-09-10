@@ -31,15 +31,51 @@ public class Super {
 	// static : This is a special keyword reserved to define static members
 	// ,hence shall always be associated with one of the above specifiers
 
-	void hello() {
-		// This method shall be available to all classes within this package
-		// default access specifiers is considered for all the members with no
-		// explicit specifier
-		System.out.println("hello() in Super Class");
+	static {
+		// static block, first one to get executed
+		// executes once in the lifetime of a class
+	}
+	{
+		// instance block, first one that gets executed everytime the class is
+		// instantiated
 	}
 
 	int index;
 	static String message;
+
+	Super() {
+		// overridden no argument constructor
+
+	}
+
+	Super(int num) {
+		// overridden parameterized constructor
+		// useful for initializing variables at the time of object creation ,
+		// primarily useful for mandatory fields
+		index = num;
+	}
+
+	// method signature
+	// parameters : 0 or more
+	// return : void if it doesn't return anything else the type of data that's
+	// being returned
+	// access : private / protected / public / default
+	// class level : static or non static( only accessible via Object)
+	// final : restricted to be overridden in child class
+	void hello() {
+		// This method shall be available to all classes within this package
+		// default access specifier is considered for all the members with no
+		// explicit specifier
+		System.out.println("hello() in Super Class " + index);
+	}
+
+	final void sum(int i, int j) {
+		System.out.println("sum() in Super Class " + (i + j));
+	}
+
+	void hey() {
+		System.out.println("hey() in Super Class ");
+	}
 
 	static void printMessage() {
 		System.out.println("printMessage() in Super Class " + message);
@@ -70,7 +106,11 @@ public class Super {
 		// directly with the class name
 		Super.printMessage();
 		// Flow of execution
-		// static
-		// non static
+		// 1. static
+		// 2. non static
+
+		// parameterized constructor
+		Super supp = new Super(15);
+		supp.hello();
 	}
 }
