@@ -1,4 +1,4 @@
-package com.java.ws.soap.api.client;
+package com.mohsinkd786.java.ws.soap.api.client;
 
 import com.mohsinkd786.java.ws.soap.api.Product;
 
